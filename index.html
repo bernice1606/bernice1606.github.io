@@ -108,15 +108,102 @@
             box-shadow: 0 8px 15px rgba(0,0,0,0.2);
         }
 
-        .project-image {
+        .project-video {
             width: 100%;
-            height: 200px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .project-video iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .project-image-slider {
+            position: relative;
+            width: 100%;
+            height: 250px;
+            overflow: hidden;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .slider-container {
+            display: flex;
+            transition: transform 0.4s ease;
+            height: 100%;
+        }
+
+        .slide {
+            min-width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slide-placeholder {
             color: white;
             font-size: 3em;
+        }
+
+        .slider-arrow {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+            z-index: 10;
+        }
+
+        .slider-arrow:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .slider-arrow.left {
+            left: 10px;
+        }
+
+        .slider-arrow.right {
+            right: 10px;
+        }
+
+        .slider-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: white;
         }
 
         .project-content {
@@ -280,8 +367,8 @@
         <section id="about">
             <h2>About Me</h2>
             <div class="about-content">
-                <p>Hello! I'm Bernice, a Year 3 Bachelor of Engineering student at Singapore Institute of Technology, specializing in Information & Communications Technology (Software Engineering). I'm passionate about building full-stack web applications, mobile solutions, and AI-powered systems that solve real-world problems.</p>
-                <p>With hands-on experience in software development through academic projects and industry collaboration, I've worked on everything from AI-driven chatbots for healthcare to Mobile Applications. I enjoy working with diverse tech stacks and thrive in collaborative team environments where I can contribute to impactful solutions.</p>
+                <p>Hello! I'm Bernice, a final-year Bachelor of Engineering student at Singapore Institute of Technology, specializing in Information & Communications Technology (Software Engineering). I'm passionate about building full-stack web applications, mobile solutions, and AI-powered systems that solve real-world problems.</p>
+                <p>With hands-on experience in software development through academic projects and industry collaboration, I've worked on everything from AI-driven chatbots for healthcare to real estate management platforms. I enjoy working with diverse tech stacks and thrive in collaborative team environments where I can contribute to impactful solutions.</p>
                 <p>I'm actively seeking opportunities in software engineering roles where I can apply my technical skills and continue growing as a developer.</p>
             </div>
         </section>
@@ -289,12 +376,33 @@
         <section id="projects">
             <h2>Projects</h2>
             <div class="projects-grid">
+                <!-- Project 1: AI Chatbot -->
                 <div class="project-card">
-                    <div class="project-image">🤖</div>
+                    <div class="project-image-slider">
+                        <div class="slider-container" data-slider="chatbot">
+                            <div class="slide">
+                                <img src="chatbot-1.png" alt="AI Chatbot Screenshot 1" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>🤖</div>'">
+                            </div>
+                            <div class="slide">
+                                <img src="chatbot-2.png" alt="AI Chatbot Screenshot 2" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>🤖</div>'">
+                            </div>
+                            <div class="slide">
+                                <img src="chatbot-3.png" alt="AI Chatbot Screenshot 3" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>🤖</div>'">
+                            </div>
+                        </div>
+                        <button class="slider-arrow left" onclick="moveSlide('chatbot', -1)">‹</button>
+                        <button class="slider-arrow right" onclick="moveSlide('chatbot', 1)">›</button>
+                        <div class="slider-dots">
+                            <span class="dot active" onclick="currentSlide('chatbot', 0)"></span>
+                            <span class="dot" onclick="currentSlide('chatbot', 1)"></span>
+                            <span class="dot" onclick="currentSlide('chatbot', 2)"></span>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <h3>AI-Driven Chatbot for Podiatry</h3>
                         <p>Collaborated with Singapore General Hospital in a 5-member team to develop an AI-powered chatbot system automating podiatric triage and patient management.</p>
-                        <p><strong>Features:</strong> Multilingual support via Google Translate API, real-time notifications, automated appointment scheduling, responsive healthcare dashboard, AI Chatbot to assist Podiatrist and Patients</p>
+                        <p><strong>My Contributions:</strong> Developed the podiatrist support chatbot interface, integrated Google Translate API for multilingual support, and designed the complete UI/UX for both patient and podiatrist web dashboards.</p>
+                        <p><strong>Features:</strong> Multilingual support via Google Translate API, real-time notifications, automated appointment scheduling, responsive healthcare dashboard</p>
                         <div class="tech-stack">
                             <span class="tech-tag">HTML</span>
                             <span class="tech-tag">CSS</span>
@@ -305,11 +413,23 @@
                     </div>
                 </div>
 
+                <!-- Project 2: Nutrify -->
                 <div class="project-card">
-                    <div class="project-image">🥗</div>
+                    <div class="project-video">
+                        <iframe 
+                            width="100%" 
+                            height="250" 
+                            src="https://www.youtube.com/embed/YL3JQCNFLSs" 
+                            title="Nutrify - Nutrition and Lifestyle Tracker Demo" 
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
                     <div class="project-content">
                         <h3>Nutrify - Nutrition and Lifestyle Tracker</h3>
                         <p>Mobile application featuring AI-powered nutrition assistant that provides personalized dietary recommendations based on user activity levels and goals.</p>
+                        <p><strong>My Contributions:</strong> Developed the meal suggestion ML/AI system and built the AI chatbot interface for generating personalized meal plans based on user preferences and dietary requirements.</p>
                         <p><strong>Features:</strong> Food tracking with image recognition, activity-based calorie adjustment, macro-nutrient optimization, activity recommendations</p>
                         <div class="tech-stack">
                             <span class="tech-tag">Mobile Development</span>
@@ -320,8 +440,28 @@
                     </div>
                 </div>
 
+                <!-- Project 3: Excel Tool -->
                 <div class="project-card">
-                    <div class="project-image">📊</div>
+                    <div class="project-image-slider">
+                        <div class="slider-container" data-slider="excel">
+                            <div class="slide">
+                                <img src="excel-1.png" alt="Excel Tool Screenshot 1" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>📊</div>'">
+                            </div>
+                            <div class="slide">
+                                <img src="excel-2.png" alt="Excel Tool Screenshot 2" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>📊</div>'">
+                            </div>
+                            <div class="slide">
+                                <img src="excel-3.png" alt="Excel Tool Screenshot 3" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>📊</div>'">
+                            </div>
+                        </div>
+                        <button class="slider-arrow left" onclick="moveSlide('excel', -1)">‹</button>
+                        <button class="slider-arrow right" onclick="moveSlide('excel', 1)">›</button>
+                        <div class="slider-dots">
+                            <span class="dot active" onclick="currentSlide('excel', 0)"></span>
+                            <span class="dot" onclick="currentSlide('excel', 1)"></span>
+                            <span class="dot" onclick="currentSlide('excel', 2)"></span>
+                        </div>
+                    </div>
                     <div class="project-content">
                         <h3>Excel QA Automation Tool</h3>
                         <p>Developed during Equinix internship to streamline circuit validation processes. Automated color-coding and parsing of circuit details by location levels.</p>
@@ -354,6 +494,7 @@
                         <li>React</li>
                         <li>Firebase</li>
                         <li>RESTful APIs</li>
+                        <li>Google Translate API</li>
                     </ul>
                 </div>
                 <div class="skill-category">
@@ -421,5 +562,60 @@
     <footer>
         <p>&copy; 2025 Bernice Goo. All rights reserved.</p>
     </footer>
+
+    <script>
+        // Track current slide for each slider
+        const sliderPositions = {};
+
+        function moveSlide(sliderId, direction) {
+            const slider = document.querySelector(`[data-slider="${sliderId}"]`);
+            const slides = slider.querySelectorAll('.slide');
+            const dots = slider.parentElement.querySelectorAll('.dot');
+            
+            if (!sliderPositions[sliderId]) {
+                sliderPositions[sliderId] = 0;
+            }
+            
+            sliderPositions[sliderId] += direction;
+            
+            if (sliderPositions[sliderId] < 0) {
+                sliderPositions[sliderId] = slides.length - 1;
+            } else if (sliderPositions[sliderId] >= slides.length) {
+                sliderPositions[sliderId] = 0;
+            }
+            
+            updateSlider(sliderId);
+        }
+
+        function currentSlide(sliderId, index) {
+            sliderPositions[sliderId] = index;
+            updateSlider(sliderId);
+        }
+
+        function updateSlider(sliderId) {
+            const slider = document.querySelector(`[data-slider="${sliderId}"]`);
+            const dots = slider.parentElement.querySelectorAll('.dot');
+            const position = sliderPositions[sliderId] || 0;
+            
+            slider.style.transform = `translateX(-${position * 100}%)`;
+            
+            dots.forEach((dot, index) => {
+                if (index === position) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+
+        // Initialize all sliders
+        document.addEventListener('DOMContentLoaded', function() {
+            const sliders = document.querySelectorAll('[data-slider]');
+            sliders.forEach(slider => {
+                const sliderId = slider.getAttribute('data-slider');
+                sliderPositions[sliderId] = 0;
+            });
+        });
+    </script>
 </body>
 </html>
