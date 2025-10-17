@@ -364,7 +364,6 @@
             <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
             <li><a href="#skills">Skills</a></li>
-            <li><a href="#experience">Experience</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
@@ -462,6 +461,20 @@
                             <div class="slide">
                                 <img src="excel1.png" alt="Excel Tool Screenshot 1" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>📊</div>'">
                             </div>
+                            <div class="slide">
+                                <img src="excel2.png" alt="Excel Tool Screenshot 2" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>📊</div>'">
+                            </div>
+                            <div class="slide">
+                                <img src="excel3.png" alt="Excel Tool Screenshot 3" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>📊</div>'">
+                            </div>
+                        </div>
+                        <button class="slider-arrow left" onclick="moveSlide('excel', -1)">‹</button>
+                        <button class="slider-arrow right" onclick="moveSlide('excel', 1)">›</button>
+                        <div class="slider-dots">
+                            <span class="dot active" onclick="currentSlide('excel', 0)"></span>
+                            <span class="dot" onclick="currentSlide('excel', 1)"></span>
+                            <span class="dot" onclick="currentSlide('excel', 2)"></span>
+                        </div>
                     </div>
                     <div class="project-content">
                         <h3>Excel QA Automation Tool</h3>
@@ -475,13 +488,13 @@
                     </div>
                 </div>
                 
-                <!-- Project 4: 2D Game Engine -->
+               <!-- Project 4: 2D Game Engine -->
                 <div class="project-card">
                     <div class="project-image-slider">
                         <div class="slider-container" data-slider="game">
                             <div class="slide">
                                 <video autoplay loop muted playsinline>
-                                    <source src="game-1.mp4" type="video/mp4">
+                                    <source src="game1.mp4" type="video/mp4">
                                     <source src="game-1.webm" type="video/webm">
                                 </video>
                             </div>
@@ -501,8 +514,6 @@
                         </div>
                     </div>
                 </div>
-                
-            </div>
         </section>
 
         <section id="skills">
