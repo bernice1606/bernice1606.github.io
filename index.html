@@ -142,6 +142,12 @@
             justify-content: center;
         }
 
+        .slide video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .slide img {
             width: 100%;
             height: 100%;
@@ -350,7 +356,7 @@
 <body>
     <header>
         <h1>Bernice Goo</h1>
-        <p>Software Engineering Student</p>
+        <p>Software Engineering Student | Full-Stack Developer</p>
     </header>
 
     <nav>
@@ -368,7 +374,7 @@
             <h2>About Me</h2>
             <div class="about-content">
                 <p>Hello! I'm Bernice, a final-year Bachelor of Engineering student at Singapore Institute of Technology, specializing in Information & Communications Technology (Software Engineering). I'm passionate about building full-stack web applications, mobile solutions, and AI-powered systems that solve real-world problems.</p>
-                <p>With hands-on experience in software development through academic projects and industry collaboration, I've worked on everything from AI-driven chatbots for healthcare to real estate management platforms. I enjoy working with diverse tech stacks and thrive in collaborative team environments where I can contribute to impactful solutions.</p>
+                <p>With hands-on experience in software development through academic projects and industry collaboration, I've worked on everything from AI-driven chatbots for healthcare, AI and ML, Mobile Applications and Software Development. I enjoy working with diverse tech stacks and thrive in collaborative team environments where I can contribute to impactful solutions.</p>
                 <p>I'm actively seeking opportunities in software engineering roles where I can apply my technical skills and continue growing as a developer.</p>
             </div>
         </section>
@@ -381,13 +387,22 @@
                     <div class="project-image-slider">
                         <div class="slider-container" data-slider="chatbot">
                             <div class="slide">
-                                <img src="chatbot-1.png" alt="AI Chatbot Screenshot 1" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>🤖</div>'">
+                                <video autoplay loop muted playsinline>
+                                    <source src="chatbot1.mp4" type="video/mp4">
+                                    <source src="chatbot1.webm" type="video/webm">
+                                </video>
                             </div>
                             <div class="slide">
-                                <img src="chatbot-2.png" alt="AI Chatbot Screenshot 2" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>🤖</div>'">
+                                <video autoplay loop muted playsinline>
+                                    <source src="chatbot2.mp4" type="video/mp4">
+                                    <source src="chatbot2.webm" type="video/webm">
+                                </video>
                             </div>
                             <div class="slide">
-                                <img src="chatbot-3.png" alt="AI Chatbot Screenshot 3" onerror="this.parentElement.innerHTML='<div class=\'slide-placeholder\'>🤖</div>'">
+                                <video autoplay loop muted playsinline>
+                                    <source src="chatbot3.mp4" type="video/mp4">
+                                    <source src="chatbot3.webm" type="video/webm">
+                                </video>
                             </div>
                         </div>
                         <button class="slider-arrow left" onclick="moveSlide('chatbot', -1)">‹</button>
